@@ -65,6 +65,8 @@ def hasDuplicate(self, nums: List[int]) -> bool:
 ---
 ## 3. #🏆 Hash Set 
 
+**Time Complexity:** $O(n \log n)$  |  **Space Complexity:** $O(n)$ 
+
 The hash map approach uses a hash map (or dictionary in Python) to count the occurrences of each element in the array. If any element occurs more than once, it means there are duplicates.
 
 ```python
