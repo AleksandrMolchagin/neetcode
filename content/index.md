@@ -17,7 +17,9 @@ There are a few rules I set to myself:
 print("All problems should we solved in `Python` 🦑✨")
 ```
 
+**Progress: 1 / 150**
 
+---
 # Directories
 
 ### Neetcode 150
@@ -25,6 +27,7 @@ print("All problems should we solved in `Python` 🦑✨")
 1. [[Neetcode 150/Arrays & Hashing/]]
 2. ...
 
+---
 # Tags
 
 ### Emoji-based
@@ -44,6 +47,4 @@ print("All problems should we solved in `Python` 🦑✨")
 #sorting 
 
 #binarysearchtree 
-
-
 
