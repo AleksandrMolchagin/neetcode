@@ -92,7 +92,7 @@ def hasDuplicate(self, nums: List[int]) -> bool:
 ```
 
 ---
-## 5 Binary Search Tree
+## 5. Binary Search Tree
 
 **Time Complexity:** $O(n \log n)$ on average, to $O(n^2)$ - worst   
 

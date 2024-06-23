@@ -1,0 +1,143 @@
+---
+title: Is Anagram
+tags:
+  - strings
+---
+# Problem
+
+Given two strings `s` and `t`, return `true` if the two strings are anagrams of each other, otherwise return `false`.
+
+An **anagram** is a string that contains the exact same characters as another string, but the order of the characters can be different.
+
+**Example 1:**
+
+```java
+Input: s = "racecar", t = "carrace"
+
+Output: true
+```
+
+Copy
+
+**Example 2:**
+
+```java
+Input: s = "jar", t = "jam"
+
+Output: false
+```
+
+**Constraints:**
+
+- `s` and `t` consist of lowercase English letters.
+
+---
+
+# Solutions
+
+## 1.  #🏆  Build dictionaries
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(1)$
+
+Count the occurrences of each character in both strings and compare the dictionaries. If they match, the strings are anagrams. The space complexity is $O(1)$ as it depends on the number of unique characters, not the length of the strings.
+
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        dict1 = defaultdict(int)
+        dict2 = defaultdict(int)
+
+        for ch in s:
+            dict1[ch] += 1
+
+        for ch in t:    
+            dict2[ch] += 1
+
+        return dict1 == dict2
+```
+
+This solution can be optimized further. We can populate only one dictionary with character counts from string `s`, and then decrement these counts using characters from the string `t`. If any value in the dictionary is not equal to `0` after this process, the strings are not anagrams.
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        
+        memo = defaultdict(int)
+
+        for char in s:
+            memo[char] += 1
+        
+        for char in t:
+            memo[char] -= 1
+        
+        for count in memo.values():
+            if count != 0:
+                return False
+            
+        return True
+```
+
+Python-based #oneliner. Technically, a `Counter` functions as a specialized dictionary designed for counting hashable objects. Therefore, this approach is similar to using a dictionary but is more concise and may differ slightly in performance.
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+```
+
+## 2.  Count characters with a fixed-size array
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(1)$
+
+Assuming that every string contains only lowercase letters, we can use an array of size 26 to store character counters instead of dictionaries. The trick is use `ord()` to get the Unicode code point of a given character and to use it to determine the index in the array.
+
+```python
+# Get the Unicode code point of a character 
+print(ord('a'))  # Output: 97 
+print(ord('z'))  # Output: 122
+```
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        
+        order = [0] * 26 
+        
+        for char in s:
+            order[ord(char) - ord('a')] += 1
+        
+        for char in t:
+            order[ord(char) - ord('a')] -= 1
+        
+        for value in order:
+            if value != 0:
+                return False
+        
+        return True
+
+```
+
+## 3.  #🍔  Sort strings
+
+**Time Complexity:** $O(n \log n)$  |  **Space Complexity:** $O(1)$
+
+Another python-based #oneliner. The idea is to sort both strings and compare the results. When we use the `sorted()` method on a string in Python, it returns a list of sorted characters. Therefore, we need to join the sorted lists back into strings before comparing them. Or do we..?
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return ''.join(sorted(s)) == ''.join(sorted(t))
+```
+
+No, we don't.
+
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
+```
