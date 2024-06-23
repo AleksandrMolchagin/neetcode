@@ -1,6 +1,6 @@
 ---
 title: Welcome
-tags: []
+tags:
 ---
 
 # Introduction 
@@ -17,7 +17,7 @@ There are a few rules I set to myself:
 print("All problems should we solved in `Python` 🦑✨")
 ```
 
-**Progress: 1 / 150**
+**Progress: 2 / 150**
 
 ---
 # Directories
