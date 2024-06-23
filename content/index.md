@@ -37,14 +37,3 @@ print("All problems should we solved in `Python` 🦑✨")
 #🍔  - Lazy Solutions (typically one-liners)
 
 #🎈 - Fun Solutions (typically limited, but fun to learn)
-
-### Topic-based
-
-#arrays 
-
-#hashing 
-
-#sorting 
-
-#binarysearchtree 
-
