@@ -1,0 +1,146 @@
+---
+title: Two Integer Sum
+date: June 23, 2024
+tags:
+  - hashing
+  - sorting
+  - arrays
+  - twopointers
+---
+
+> [!question] 
+>
+Given an array of integers `nums` and an integer `target`, return the indices `i` and `j` such that `nums[i] + nums[j] == target` and `i != j`.
+
+You may assume that _every_ input has exactly one pair of indices `i` and `j` that satisfy the condition.
+
+Return the answer with the smaller index first. 
+
+**Example 1:**
+
+```java
+Input: 
+nums = [3,4,5,6], target = 7
+
+Output: [0,1]
+```
+
+Explanation: `nums[0] + nums[1] == 7`, so we return `[0, 1]`.
+
+**Example 2:**
+
+```java
+Input: nums = [4,5,6], target = 10
+
+Output: [0,2]
+```
+
+**Example 3:**
+
+```java
+Input: nums = [5,5], target = 10
+
+Output: [0,1]
+```
+
+**Constraints:**
+
+- `2 <= nums.length <= 1000`
+- `-10,000,000 <= nums[i] <= 10,000,000`
+- `-10,000,000 <= target <= 10,000,000`
+
+---
+# Solutions
+
+## 1. Brute Force Approach
+
+**Time Complexity:** $O(n^2)$  |  **Space Complexity:** $O(1)$ 
+
+To solve the problem using a brute force approach, we need to iterate through all possible pairs of numbers in a nested `for` loop and check if their sum equals the target value.
+
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        return []
+```
+
+## 2. Two-pass Hash Table
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$ 
+
+Alternatively, we can use a `hash_table` to store each number from the array as a key, with its corresponding index as the value.
+
+Once the hash table is created, we iterate through the array again, checking for each number if its complement (`target - num`) exists in the hash table. If the complement is found, we return the current index and the index of the complement from the hash table.
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_table = {}
+        for i, num in enumerate(nums):
+            hash_table[num] = i
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in hash_table and hash_table[complement] != i:
+                return [i, hash_table[complement]]
+        return []
+```
+
+## 3. #🏆 One-pass Hash Table
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$ 
+
+Now we can optimize our approach by populating the hash table and checking for the complement simultaneously within a single loop:
+
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_table = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in hash_table:
+                return [hash_table[complement], i]
+            hash_table[num] = i
+        return []
+```
+
+
+## 4. Sorting and Two-Pointers
+
+Another approach involves sorting the array and using two pointers. First, we sort the array while keeping track of the original indices. Then, we use two pointers, one starting at the beginning (left) and one at the end (right) of the sorted array. We check the sum of the numbers at these two pointers:
+
+- If the sum is equal to the target, we return the indices of these two numbers.
+- If the sum is less than the target, we move the left pointer one step to the right to increase the sum.
+- If the sum is greater than the target, we move the right pointer one step to the left to decrease the sum.
+
+We repeat this process until the target sum is found.
+
+```python
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+
+
+        nums_with_index = [(num, i) for i, num in enumerate(nums)]
+        nums_with_index.sort()
+        
+        left, right = 0, len(nums_with_index) - 1
+
+        while left < right:
+            current_sum = nums_with_index[left][0] + nums_with_index[right][0]
+            if current_sum == target:
+
+                return [nums_with_index[left][1], nums_with_index[right][1]]
+            elif current_sum < target:
+                left += 1
+            else:
+                right -= 1
+        
+        return []
+
+
+```

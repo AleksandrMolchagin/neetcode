@@ -91,6 +91,7 @@ class Solution:
         return Counter(s) == Counter(t)
 ```
 
+---
 ## 2.  Count characters with a fixed-size array
 
 **Time Complexity:** $O(n)$  |  **Space Complexity:** $O(1)$
@@ -125,6 +126,7 @@ class Solution:
 
 ```
 
+---
 ## 3.  #🍔  Sort strings
 
 **Time Complexity:** $O(n \log n)$  |  **Space Complexity:** $O(1)$
