@@ -49,7 +49,7 @@ Output: [[""]]
 ---
 # Solutions
 
-## Hashing based on a sorted word as a key
+## 1. Hashing based on a sorted word as a key
 
 **Time Complexity:** $O(n * m \log m)$, where $m$ is the maximum length of a word.
 **Space Complexity:** $O(n * m)$, where $m$ is  the maximum length of a word.
@@ -73,7 +73,7 @@ class Solution:
 ```
 
 ---
-## Hashing based on characters frequencies
+## 2. Hashing based on characters frequencies
 
 Alternatively, we can efficiently group anagrams by counting the occurrences of each character in a word and storing these counts in a fixed-size array of length 26, corresponding to the letters of the English alphabet. After counting the characters, we convert this array into a tuple. This conversion is crucial because tuples, unlike arrays, are immutable and can be used as keys in a dictionary. Using tuples allows us to leverage their hashable property to store and retrieve grouped anagrams reliably.
 
@@ -95,7 +95,7 @@ class Solution:
 ```
 
 ---
-## #🏆  Hashing based on prime number product
+## #🏆 3. Hashing based on prime number product
 
 **Time Complexity:** $O(n * m)$, where $m$ is  an average length of a word.
 **Space Complexity:** $O(n * m)$, where $m$ is  an average length of a word.
