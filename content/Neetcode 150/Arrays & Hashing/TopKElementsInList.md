@@ -1,5 +1,5 @@
 ---
-title: TopKElementsInList
+title: Top K Elements In List
 date: June 26, 2024
 tags:
   - hashing
