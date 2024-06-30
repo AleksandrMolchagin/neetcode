@@ -39,6 +39,7 @@ Output: ["we","say",":","yes"]
 
 ## #🏆 1. Length Prefix
 
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$
 
 We can solve the problem by joining all strings together using the integer that represents their lengths followed by a special delimiter (e.g., `#`).
 
@@ -69,6 +70,8 @@ class Solution:
 ---
 ## #🍔 2. JSON Serialization
 
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$
+
 The simplest solution here would be JSON serialization. Using `json.dumps(array)`  we can convert array of strings into a single string representation.:
 
 ```python
@@ -95,6 +98,8 @@ def decode(s):
 ---
 
 ## 3.  Base64 Encoding
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$
 
 Alternatively, we can utilize `Base64` to solve the given problem.
 
