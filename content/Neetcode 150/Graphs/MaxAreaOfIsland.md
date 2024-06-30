@@ -1,5 +1,9 @@
 ---
 title: Max Area of Island
+tags:
+  - bfs
+  - dfs
+  - unionfind
 ---
 # Problem
 
@@ -131,8 +135,6 @@ The `find` operation helps identify the root of each set, while `union` merg
 
 
 ```python
-from typing import List
-
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         if not grid:
