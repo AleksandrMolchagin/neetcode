@@ -1,18 +1,14 @@
-# Quartz v4
+# Neetcode 150
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+Hello there! 👋 My name is Aleksandr and I built this website to collect solutions to [Neetcode 150](https://neetcode.io/practice) problems! My goal is to outline solutions to all problems. By doing this I am improving my ability to explain algorithmic solutions and creating a valuable resource for others preparing for coding interviews or enhancing their problem-solving skills.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
-Quartz v4 features a from-the-ground rewrite focusing on end-user extensibility and ease-of-use.
+There are a few rules I set to myself:
+- All problems should have `multiple solutions` (when possible)
+- Each solution should include `time complexity` and `space complexity`
+- All solutions should be explained `concisely`
+- And...
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
-
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
-
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+```python
+print("All problems should we solved in `Python` 🦑✨")
+```
+**Link**: https://neetcode.aleksandrmolchagin.com
