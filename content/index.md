@@ -26,7 +26,11 @@ print("All problems should we solved in `Python` 🦑✨")
 
 1. [[Neetcode 150/Arrays & Hashing/]]
 2. ...
+3. [[Neetcode 150/Graphs]]
 
+## Daily
+
+1. [[Daily/July 2024]]
 ---
 # Tags
 

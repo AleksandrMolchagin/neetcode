@@ -131,7 +131,7 @@ To understand the Union-Find data structure, refer to the [video](https://www.yo
 
 The `find` operation helps identify the root of each set, while `union` merges two sets and updates their areas, using path compression and union by rank for optimal performance. What is a path compression? Path compression is an optimization technique that flattens the structure of the tree whenever `find` is called, by making nodes point directly to the root.
 
-![[assets/1*M-SpV7SZTmw9YHC734tSHQ.png]]
+![[assets/1_M-SpV7SZTmw9YHC734tSHQ.png]]
 
 
 ```python
