@@ -1,0 +1,131 @@
+---
+title: Products of Array Discluding Self
+date: July 1, 2024
+tags:
+---
+
+# Problem
+
+>[!question]
+>Given an integer array `nums`, return an array `output` where `output[i]` is the product of all the elements of `nums` except `nums[i]`.
+
+Each product is **guaranteed** to fit in a **32-bit** integer.
+
+Follow-up: Could you solve it in 𝑂(𝑛)O(n) time without using the division operation?
+
+**Example 1:**
+
+```java
+Input: nums = [1,2,4,6]
+
+Output: [48,24,12,8]
+```
+
+Copy
+
+**Example 2:**
+
+```java
+Input: nums = [-1,0,1,2,3]
+
+Output: [0,-6,0,0,0]
+```
+
+Copy
+
+**Constraints:**
+
+- `2 <= nums.length <= 1000`
+- `-20 <= nums[i] <= 20`
+
+---
+# Solutions
+
+## #🏆  Left and right products
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(n)$
+
+To solve this problem, we can create arrays that store *the product of all elements to the left* and *the product all elements to the right* of each given number. Then, we use a for-loop to multiply these stored values together. This approach will give us the product of the array excluding the current element.
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        l_product = [1 for num in nums]
+        r_product  = [1 for num in nums]
+
+        for i in range(1, len(nums)):
+            l_product[i] = l_product[i-1] * nums[i-1]
+
+        for i in range(len(nums) - 2, -1, -1):
+            r_product[i] = r_product[i+1] * nums[i+1]
+
+        for i in range(len(nums)):
+            nums[i] = l_product[i] * r_product[i]
+
+        return nums
+
+```
+
+However, we can optimize this further by using a single output array to:
+1. Store the left products directly
+2. Updating it with the right products in a single pass
+
+To achieve this solution, we can simplify the original code without needing an in-depth understanding of how it works. We use variable `R` to store what used to be `r_product[i+1] * nums[i+1]`.
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        n = len(nums)
+        result = [1] * n
+
+		# Store left products
+        for i in range(1, n):
+            result[i] = result[i - 1] * nums[i - 1]
+
+		#Updating the array with the right products in a single pass
+        R = 1
+        for i in range(n - 2, -1, -1):
+            R = R * nums[i + 1]
+            result[i] = result[i] * R
+
+        return result
+```
+
+---
+
+## 2. Ignore the rules & use division
+
+**Time Complexity:** $O(n)$  |  **Space Complexity:** $O(1)$
+
+If we decide to ignore the condition not to use the division operator, the space complexity truly becomes $O(1)$. The solution is simple: we get the total product and iterate through the array, updating all numbers to `product // num`. However, it is important to remember that we might encounter zeros. If there are more than 1 zero, all numbers in the final array will be 0. If there is exactly 1 zero, all elements in the final array will be 0 except for the position corresponding to the zero element - it will be set to the total product of all non-zero numbers.
+
+```python
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        total_product = 1
+        zero_count = 0
+        
+        for num in nums:
+            if num != 0:
+                total_product *= num
+            else:
+                zero_count += 1
+        
+        result = [0] * len(nums)
+        
+        if zero_count > 1:
+            return result
+        
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                result[i] = total_product
+            elif zero_count == 1:
+                result[i] = 0
+            else:
+                result[i] = total_product // nums[i]
+                
+        return result
+
+```
