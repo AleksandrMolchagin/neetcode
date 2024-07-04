@@ -17,7 +17,7 @@ There are a few rules I set to myself:
 print("All problems should we solved in `Python` 🦑✨")
 ```
 
-**Progress: 6 / 150**
+**Progress: 7 / 150**
 
 ---
 # Directories
