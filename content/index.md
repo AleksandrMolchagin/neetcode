@@ -22,7 +22,7 @@ print("All problems should we solved in `Python` 🦑✨")
 ---
 # Directories
 
-### Neetcode 150
+### Neetcode 250
 
 1. [[Neetcode 250/Arrays & Hashing/]]
 2. ...

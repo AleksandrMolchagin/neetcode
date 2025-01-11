@@ -8,7 +8,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "✨ Neetcode 150",
+    pageTitle: "✨ Neetcode 250",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
